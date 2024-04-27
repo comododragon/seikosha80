@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP NEO-6M-PACKAGE
+D GPS ublox M8 variant
+K gps module with antenna
+F https://www.u-blox.com/sites/default/files/SAM-M8Q_DataSheet_%28UBX-16012619%29.pdf
+$ENDCMP
+#
+#End Doc Library
