@@ -202,6 +202,10 @@ int main(void) {
 		// Disable sdcard/sound power rail
 		pwr_disableRail();
 
+		// Give a 0.5sec break, this allows the gate rail to stabilise at VCC
+		// Hopefully avoiding interference with the interrupt/wakeup logic
+		_delay_ms(500);
+
 		// Set alarm to next quarter
 		switch(quarter) {
 			case 0:
