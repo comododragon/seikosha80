@@ -28,7 +28,7 @@ if "__main__" == __name__:
 		sys.stderr.write("\n")
 		sys.stderr.write("The names are self-explanatory.\n")
 		sys.stderr.write("These files will be concatenated in this order to a binary image\n")
-		sys.stderr.write("1 channel, 8 bit, 8000kHz\n")
+		sys.stderr.write("1 channel, 8 bit, 10000kHz\n")
 		sys.stderr.write("Each wave will have 5 appended seconds of silence\n")
 		sys.stderr.write("Before each wave file, an unsigned long is placed with the size in bytes of the wave file\n")
 		sys.stderr.write("This binary image can be dd'ed to an sdcard\n")
@@ -52,14 +52,14 @@ if "__main__" == __name__:
 
 		with tempfile.NamedTemporaryFile(mode="rb", suffix=".wav") as tmpF:
 			print("    conversion output will be saved at {}".format(tmpF.name))
-			subprocess.run(["ffmpeg", "-i", filePath, "-acodec", "pcm_u8", "-ac", "1", "-ar", "8000", "-y", tmpF.name])
+			subprocess.run(["ffmpeg", "-i", filePath, "-acodec", "pcm_u8", "-ac", "1", "-ar", "10000", "-y", tmpF.name])
 			print("    done!")
 
 			with wave.open(tmpF.name, "rb") as wavF:
 				frames = wavF.readframes(-1)
 
 				print("    wave file size: {} bytes".format(len(frames)))
-				totalWavFileSize = len(frames) + 5 * 8000
+				totalWavFileSize = len(frames) + 5 * 10000
 				print("    wave file size (with 5s silence): {} bytes".format(totalWavFileSize))
 				totalWavFileSize += (512 - (totalWavFileSize % 512))
 				print("    wave file size (with 5s silence, 512-byte aligned): {} bytes".format(totalWavFileSize))

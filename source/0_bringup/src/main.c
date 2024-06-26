@@ -99,9 +99,10 @@ int main(void) {
 #endif
 			}
 
-			// Disarm alarm in any case
+			// Disable and reset alarm in any case
 			// It may have triggered normally, or with the modification above
-			ASSERT(TW_NO_ERROR == rtc_disarmAlarm());
+			ASSERT(TW_NO_ERROR == rtc_disableAlarm());
+			ASSERT(TW_NO_ERROR == rtc_resetAlarm());
 		}
 
 		// Prepare arguments to select the chimes
@@ -179,7 +180,7 @@ int main(void) {
 
 		// The full wave files have 5 seconds of silence.
 		// Remove approx. 4 seconds of it, rounded to 512 bytes still
-		audioSize -= 32256;
+		audioSize -= 40448;
  
 		sound_setSize(audioSize);
 
@@ -202,10 +203,6 @@ int main(void) {
 		// Disable sdcard/sound power rail
 		pwr_disableRail();
 
-		// Give a 0.5sec break, this allows the gate rail to stabilise at VCC
-		// Hopefully avoiding interference with the interrupt/wakeup logic
-		_delay_ms(500);
-
 		// Set alarm to next quarter
 		switch(quarter) {
 			case 0:
@@ -225,6 +222,12 @@ int main(void) {
 #if 1
 		ASSERT(TW_NO_ERROR == rtc_setAlarmMinutes(nextQuarter));
 #endif
+
+		// XXX These delays might be unnecessary, but they won't hurt anyone
+		_delay_ms(250);
+		// Ensure that alarm flag is low. Otherwise the atmega might wake up again
+		ASSERT(TW_NO_ERROR == rtc_resetAlarm());
+		_delay_ms(250);
 
 		cli();
 

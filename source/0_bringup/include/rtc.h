@@ -31,8 +31,8 @@ unsigned char rtc_disableAlarm(void);
 // Set alarm for a given minute, BCD format
 unsigned char rtc_setAlarmMinutes(unsigned char minutes);
 
-// Disarm alarm
-unsigned char rtc_disarmAlarm(void);
+// Reset the alarm flag
+unsigned char rtc_resetAlarm(void);
 
 
 #endif

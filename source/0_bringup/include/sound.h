@@ -11,13 +11,13 @@
 
 
 // Sample rate of the chimes
-#define SAMPLE_RATE           8000UL
+#define SAMPLE_RATE           10000UL
 // Audio ring buffer size
 #define RING_BUFFER_SIZE      1024UL
 // Upper limit to hold sdcard read
 #define RECV_PAUSE_THRESHOLD   800UL
 // Lower limit to resume sdcard read
-#define RECV_RESUME_THRESHOLD  200UL
+#define RECV_RESUME_THRESHOLD  300UL
 
 
 // Initialise the counters

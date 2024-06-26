@@ -168,7 +168,7 @@ _err:
 	return errCode;
 }
 
-unsigned char rtc_disarmAlarm(void) {
+unsigned char rtc_resetAlarm(void) {
 	unsigned char errCode = TW_NO_ERROR;
 	unsigned char retVal;
 	unsigned char setVal;
