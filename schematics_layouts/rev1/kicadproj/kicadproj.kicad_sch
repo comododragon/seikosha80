@@ -10493,7 +10493,7 @@
 				)
 			)
 		)
-		(property "Value" "DS3231"
+		(property "Value" "Si2323DS"
 			(at 210.82 36.83 90)
 			(effects
 				(font
@@ -12493,7 +12493,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "DS3231"
+		(property "Value" "Si2323DS"
 			(at 176.53 40.64 0)
 			(effects
 				(font

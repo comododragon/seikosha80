@@ -1,5 +1,7 @@
 F_CPU=8000000UL
 MCU=atmega328p
+PORT=/dev/ttyUSB0
+BAUD=57600
 
 
 
@@ -10,7 +12,7 @@ help:
 
 .PHONY: program
 program: out/main.hex
-	avrdude -F -V -c arduino -p ATMEGA328P -P /dev/ttyUSB0 -b 57600 -U flash:w:out/main.hex
+	avrdude -F -V -c arduino -p ATMEGA328P -P $(PORT) -b $(BAUD) -U flash:w:out/main.hex
 
 
 .PHONY: sdcard
