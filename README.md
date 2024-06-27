@@ -9,14 +9,14 @@ Take a look at the [wiki](https://github.com/comododragon/seikosha80/wiki/The-Se
 
 For PCB schematics and layouts, check [here](https://github.com/comododragon/seikosha80/wiki/The-Seikosha80-Project#schematics-and-layouts).
 
-### Software
+## Software
 
 For software description, check [here](https://github.com/comododragon/seikosha80/wiki/The-Seikosha80-Project#the-software).
 
-### Utilities
+## Utilities
 
 For the wave conversion and index generation utility, check [here](https://github.com/comododragon/seikosha80/wiki/The-Seikosha80-Project#chime-conversion-and-image-file).
 
-### Next steps
+## Next steps
 
 See [here](https://github.com/comododragon/seikosha80/wiki/The-Seikosha80-Project#next-steps).
