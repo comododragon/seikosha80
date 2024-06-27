@@ -5,6 +5,10 @@ Seikosha80 Chimer Project
 
 Take a look at the [wiki](https://github.com/comododragon/seikosha80/wiki/The-Seikosha80-Project) for the complete story around this project.
 
+## Revision 1
+
+For a complete description of Revision 1 board, see [here](https://github.com/comododragon/seikosha80/wiki/The-Seikosha80-Project#second-attempt-finally-a-kickoff-2024-).
+
 ## PCB
 
 For PCB schematics and layouts, check [here](https://github.com/comododragon/seikosha80/wiki/The-Seikosha80-Project#schematics-and-layouts).
