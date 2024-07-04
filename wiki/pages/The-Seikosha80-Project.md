@@ -412,6 +412,12 @@ The project for this is located at `schematics_layouts/rev1/kicadproj_pcb/`. Thi
 
 <img src="https://github.com/comododragon/seikosha80/blob/main/wiki/pcb.jpeg?raw=true" alt="drawing" width="800"/>
 
+This PCB version considers the daughter boards soldered and facing upwards. I have also created Revision 1b, where the daughter boards are expected to lie in parallel to the PCB, connected via pin headers. The PCB had to be slightly rearranged in order to avoid overlap between daughter boards:
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/pcb1b.jpeg?raw=true" alt="drawing" width="600"/>
+
+This version is located at `schematics_layouts/rev1/kicadproj_pcb_rev1b/`.
+
 ## The old layout folder...
 
 There is an `old/layouts/` folder. Don't look there. These are preliminary layout for the breadboard circuits. I had no Internet at the time I was doing this, so please ignore the file format I used. Really, just nod and move on.
