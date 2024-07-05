@@ -9,7 +9,7 @@
 	(paper "A4")
 	(title_block
 		(title "Seikosha80 Westminster Chimer")
-		(rev "1")
+		(rev "1b")
 		(comment 1 "/kicadproj/output.pdf for discrete schematic")
 		(comment 2 "https://github.com/comododragon/seikosha80/blob/main/schematics_layouts/rev1")
 		(comment 3 "See")
@@ -4706,7 +4706,7 @@
 		(uuid "e8fb9d86-5898-4a75-b6a2-ad0631dbd1af")
 	)
 	(gr_rect
-		(start 106.68 78.74)
+		(start 106.68 76.2)
 		(end 193.04 129.54)
 		(stroke
 			(width 0.05)
@@ -4715,6 +4715,29 @@
 		(fill none)
 		(layer "Edge.Cuts")
 		(uuid "23db79e9-0001-4e7c-afff-172ae53b0694")
+	)
+	(gr_text "SET 15MIN"
+		(at 152.4 124.46 0)
+		(layer "F.SilkS")
+		(uuid "02d0ff35-f7bd-4bf2-8d67-65125160cdf5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(gr_text "4.5V IN"
+		(at 109.22 111.76 0)
+		(layer "F.SilkS")
+		(uuid "06bcf3b3-2026-447b-8256-f5b7bc056f73")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left)
+		)
 	)
 	(gr_text "This PCB revision\nuses a stripboard\n(hence predefined\ntracks)."
 		(at 195.58 96.52 0)
@@ -4752,6 +4775,160 @@
 			(justify left bottom)
 		)
 	)
+	(gr_text "GND"
+		(at 170.18 91.44 0)
+		(layer "F.SilkS")
+		(uuid "676afd62-a8d3-4879-95f3-903056fe3fef")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(gr_text "GND"
+		(at 134.62 93.98 0)
+		(layer "F.SilkS")
+		(uuid "6d1ca3d1-2369-463e-86ad-303dcc425906")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(gr_text "RTC"
+		(at 119.38 88.9 0)
+		(layer "F.SilkS")
+		(uuid "7f2d60c6-1db2-4e5c-a449-b955c1ffc1af")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left)
+		)
+	)
+	(gr_text "SDCARD"
+		(at 154.94 86.36 0)
+		(layer "F.SilkS")
+		(uuid "831aa177-c960-4ccc-8d45-f0502adc4942")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left)
+		)
+	)
+	(gr_text "GND"
+		(at 109.22 116.84 90)
+		(layer "F.SilkS")
+		(uuid "854f05c6-2e49-484e-86ce-be2c95285a55")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left)
+		)
+	)
+	(gr_text "AUDIO"
+		(at 190.5 119.38 0)
+		(layer "F.SilkS")
+		(uuid "b3e5d815-a073-427a-8724-7890db8164d1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify right)
+		)
+	)
+	(gr_text "GND"
+		(at 180.34 119.38 0)
+		(layer "F.SilkS")
+		(uuid "b58edce0-74d5-4641-8dd9-537988d65e8e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(gr_text "Seikosha80\ngithub.com/comododragon\n2024"
+		(at 190.5 78.74 0)
+		(layer "F.SilkS")
+		(uuid "b7b21592-5187-4e1d-b205-d45887369392")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify right top)
+		)
+	)
+	(gr_text "SET HR"
+		(at 132.08 124.46 0)
+		(layer "F.SilkS")
+		(uuid "dbb458b4-f987-4b27-9db0-aaa9e672f17b")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(gr_text "1"
+		(at 127 109.22 90)
+		(layer "F.SilkS")
+		(uuid "e458e63a-df85-4f9f-9751-74dbefe0a7cc")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left)
+		)
+	)
+	(gr_text_box "Rev. 1: Compact PCB\nRev. 1b: Optimised for daughter cards\nRev. 1c: Optimised for buttons placement"
+		(start 208.28 129.54)
+		(end 256.54 144.78)
+		(layer "F.Cu")
+		(uuid "575db490-6c1b-4ad9-b3d1-ebae70511625")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(border yes)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+	)
+	(gr_text_box "Revision"
+		(start 208.28 124.46)
+		(end 256.54 129.54)
+		(layer "F.Cu")
+		(uuid "df36f01d-324f-4638-bce2-7d765f83b774")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(border yes)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+	)
 	(segment
 		(start 111.76 121.92)
 		(end 111.76 116.84)
@@ -4767,6 +4944,22 @@
 		(layer "F.Cu")
 		(net 1)
 		(uuid "167d76e1-5294-4aec-93d6-a72f52c48943")
+	)
+	(segment
+		(start 134.62 81.28)
+		(end 134.62 88.9)
+		(width 0.2)
+		(layer "F.Cu")
+		(net 1)
+		(uuid "3182cc4d-98bf-41dd-8c83-90798a1ff715")
+	)
+	(segment
+		(start 142.24 81.28)
+		(end 142.24 88.9)
+		(width 0.2)
+		(layer "F.Cu")
+		(net 1)
+		(uuid "42e0f79c-bda5-4ceb-a65c-7d7afe417b1e")
 	)
 	(segment
 		(start 170.18 109.22)
@@ -4801,31 +4994,15 @@
 		(uuid "ab7b821a-d311-4c24-8108-abbf12fee8be")
 	)
 	(segment
-		(start 134.62 83.82)
-		(end 134.62 88.9)
-		(width 0.2)
-		(layer "F.Cu")
-		(net 1)
-		(uuid "b1bcad1a-f877-4928-8a56-3f5d0c2e2eae")
-	)
-	(segment
 		(start 111.76 106.68)
-		(end 111.76 83.82)
+		(end 111.76 81.28)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 1)
-		(uuid "d70d4608-4948-404c-b7ba-d607fdd5997d")
-	)
-	(segment
-		(start 142.24 83.82)
-		(end 142.24 88.9)
-		(width 0.2)
-		(layer "F.Cu")
-		(net 1)
-		(uuid "ecc011a1-df8f-4bdc-868a-18f66428d8f3")
+		(uuid "e677e49f-0e6a-42b5-9fc4-bffad6c817ea")
 	)
 	(via
-		(at 142.24 83.82)
+		(at 142.24 81.28)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
@@ -4921,7 +5098,7 @@
 		(uuid "96e520bd-50c5-44db-ae4d-550899f0aa74")
 	)
 	(via
-		(at 111.76 83.82)
+		(at 111.76 81.28)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
@@ -4929,7 +5106,7 @@
 		(uuid "9a1b4202-c298-4eef-a340-99a33a23911a")
 	)
 	(via
-		(at 134.62 83.82)
+		(at 134.62 81.28)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
@@ -4985,20 +5162,20 @@
 		(uuid "0e13f3e0-eb06-4a69-b3f7-85b77bfad2d5")
 	)
 	(segment
-		(start 111.76 83.82)
-		(end 187.96 83.82)
-		(width 2)
-		(layer "B.Cu")
-		(net 1)
-		(uuid "167015b9-563a-4bbe-8c1a-632cee8208f3")
-	)
-	(segment
 		(start 142.24 99.06)
 		(end 142.24 88.9)
 		(width 2)
 		(layer "B.Cu")
 		(net 1)
 		(uuid "572913ab-0fe5-4f91-a6e7-222a0d9ab087")
+	)
+	(segment
+		(start 111.76 81.28)
+		(end 187.96 81.28)
+		(width 2)
+		(layer "B.Cu")
+		(net 1)
+		(uuid "5d961aca-7b52-4d14-87e7-a6a180c67939")
 	)
 	(segment
 		(start 111.76 106.68)
@@ -5049,20 +5226,20 @@
 		(uuid "f4078a95-3f46-404f-8c1e-0e05bbf39f28")
 	)
 	(segment
-		(start 147.32 86.36)
-		(end 147.32 88.9)
-		(width 0.2)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "1675ca07-31c1-4cf0-a837-a948e82801e7")
-	)
-	(segment
 		(start 116.84 111.76)
 		(end 119.38 111.76)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 2)
 		(uuid "183f7546-c5ee-489d-a5cd-37f11a1cba1b")
+	)
+	(segment
+		(start 147.32 83.82)
+		(end 147.32 88.9)
+		(width 0.2)
+		(layer "F.Cu")
+		(net 2)
+		(uuid "20cb1acd-7f55-4f84-8e82-051522c88e53")
 	)
 	(segment
 		(start 116.84 124.46)
@@ -5073,20 +5250,20 @@
 		(uuid "5c9730ae-d641-43d9-b865-fe39444c2b83")
 	)
 	(segment
-		(start 132.08 86.36)
+		(start 132.08 83.82)
 		(end 132.08 88.9)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 2)
-		(uuid "86df17b5-a92d-46bf-b5e2-1c74e32335e5")
+		(uuid "c5abd7c3-3fba-4144-893e-2ac7e96c4aaa")
 	)
 	(segment
 		(start 116.84 106.68)
-		(end 116.84 86.36)
+		(end 116.84 83.82)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 2)
-		(uuid "f227692c-528f-4eea-89ee-65ee90579bfc")
+		(uuid "ef67efcb-bc8b-48bb-9fd6-9a8770122fe2")
 	)
 	(segment
 		(start 142.24 116.84)
@@ -5105,7 +5282,7 @@
 		(uuid "17c399a9-7f0b-4315-91e1-697676cbaa25")
 	)
 	(via
-		(at 147.32 86.36)
+		(at 147.32 83.82)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
@@ -5145,7 +5322,7 @@
 		(uuid "9d6d0fb5-bec5-4cb3-ba53-a44e6a7d6b57")
 	)
 	(via
-		(at 132.08 86.36)
+		(at 132.08 83.82)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
@@ -5177,7 +5354,7 @@
 		(uuid "df9733ba-47a3-4470-abb3-f250c4e45340")
 	)
 	(via
-		(at 116.84 86.36)
+		(at 116.84 83.82)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
@@ -5233,14 +5410,6 @@
 		(uuid "63f5b973-b7ce-45bf-bc70-cb0567e9f0d1")
 	)
 	(segment
-		(start 187.96 86.36)
-		(end 111.76 86.36)
-		(width 2)
-		(layer "B.Cu")
-		(net 2)
-		(uuid "8ed09d06-f37b-44a2-a919-30b532206c27")
-	)
-	(segment
 		(start 142.24 106.68)
 		(end 142.24 116.84)
 		(width 2)
@@ -5255,6 +5424,14 @@
 		(layer "B.Cu")
 		(net 2)
 		(uuid "a41d615d-c2b2-45f9-a405-7ffe44156332")
+	)
+	(segment
+		(start 187.96 83.82)
+		(end 111.76 83.82)
+		(width 2)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "a909e24e-fbb4-473d-af12-3c14806dce54")
 	)
 	(segment
 		(start 144.78 99.06)

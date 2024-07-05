@@ -416,7 +416,11 @@ This PCB version considers the daughter boards soldered and facing upwards. I ha
 
 <img src="https://github.com/comododragon/seikosha80/blob/main/wiki/pcb1b.jpeg?raw=true" alt="drawing" width="600"/>
 
-This version is located at `schematics_layouts/rev1/kicadproj_pcb_rev1b/`.
+At last, Revision 1c is another slight rearrange, optimised for the stripboard size that I am using. That means no PCB cut required. Also the buttons were placed on a more user-friendly position:
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/pcb1c.jpeg?raw=true" alt="drawing" width="600"/>
+
+These are located at `schematics_layouts/rev1/kicadproj_pcb_rev1b/` and `schematics_layouts/rev1/kicadproj_pcb_rev1c/`.
 
 ## The old layout folder...
 

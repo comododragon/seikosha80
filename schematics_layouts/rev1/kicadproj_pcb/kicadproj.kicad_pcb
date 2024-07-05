@@ -4761,7 +4761,7 @@
 		(uuid "e8fb9d86-5898-4a75-b6a2-ad0631dbd1af")
 	)
 	(gr_rect
-		(start 106.68 78.74)
+		(start 106.68 76.2)
 		(end 177.8 129.54)
 		(stroke
 			(width 0.05)
@@ -4770,6 +4770,18 @@
 		(fill none)
 		(layer "Edge.Cuts")
 		(uuid "23db79e9-0001-4e7c-afff-172ae53b0694")
+	)
+	(gr_text "4.5V IN"
+		(at 109.22 111.76 0)
+		(layer "F.SilkS")
+		(uuid "0a9bda38-8df1-464f-8282-63aa63b5d365")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left)
+		)
 	)
 	(gr_text "This PCB revision\nuses a stripboard\n(hence predefined\ntracks)."
 		(at 180.34 93.98 0)
@@ -4781,6 +4793,18 @@
 				(thickness 0.1)
 			)
 			(justify left bottom)
+		)
+	)
+	(gr_text "1"
+		(at 127 109.22 90)
+		(layer "F.SilkS")
+		(uuid "3337f059-8858-4d91-aede-a563dc1b25a5")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left)
 		)
 	)
 	(gr_text "Note some DIP pins\nfrom ATmega socket\nwere removed"
@@ -4795,6 +4819,41 @@
 			(justify left bottom)
 		)
 	)
+	(gr_text "GND"
+		(at 109.22 116.84 90)
+		(layer "F.SilkS")
+		(uuid "53170779-e275-4512-aebf-127886e07d8e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left)
+		)
+	)
+	(gr_text "Seikosha80\ngithub.com/comododragon\n2024"
+		(at 175.26 78.74 0)
+		(layer "F.SilkS")
+		(uuid "74aa079b-7dce-4415-b0fd-3076548ee741")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify right top)
+		)
+	)
+	(gr_text "SET HR"
+		(at 132.08 124.46 0)
+		(layer "F.SilkS")
+		(uuid "77d1aed1-c93f-43d2-83af-fb56d2fffeb3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
 	(gr_text "Rev. 1"
 		(at 170.18 127 0)
 		(layer "F.SilkS")
@@ -4807,13 +4866,62 @@
 			(justify left bottom)
 		)
 	)
+	(gr_text "SET 15MIN"
+		(at 152.4 124.46 0)
+		(layer "F.SilkS")
+		(uuid "ae2e8a04-4365-48fa-8ed7-fee17af4ff2e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(gr_text_box "Revision"
+		(start 193.04 124.46)
+		(end 241.3 129.54)
+		(layer "F.Cu")
+		(uuid "4c25ce84-6a9c-407f-9e5a-99083ac64de9")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(border yes)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+	)
+	(gr_text_box "Rev. 1: Compact PCB\nRev. 1b: Optimised for daughter cards\nRev. 1c: Optimised for buttons placement"
+		(start 193.04 129.54)
+		(end 241.3 144.78)
+		(layer "F.Cu")
+		(uuid "9d48d785-7f4a-4371-813a-842173d522aa")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(border yes)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+	)
 	(segment
-		(start 111.76 83.82)
-		(end 111.76 106.68)
+		(start 142.24 81.28)
+		(end 142.24 88.9)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 1)
-		(uuid "49b140d8-0767-449a-aa1e-1d9fcf7d6876")
+		(uuid "6c21d19b-0325-407a-8bed-6732a67ba9a1")
 	)
 	(segment
 		(start 111.76 116.84)
@@ -4824,6 +4932,14 @@
 		(uuid "73b8d6b8-c877-4ee1-9992-3678fdb7494a")
 	)
 	(segment
+		(start 111.76 81.28)
+		(end 111.76 106.68)
+		(width 0.2)
+		(layer "F.Cu")
+		(net 1)
+		(uuid "a68bb253-b7b8-4347-bdd9-b4d19996b31c")
+	)
+	(segment
 		(start 144.78 116.84)
 		(end 144.78 121.92)
 		(width 0.2)
@@ -4832,23 +4948,15 @@
 		(uuid "ab7b821a-d311-4c24-8108-abbf12fee8be")
 	)
 	(segment
-		(start 134.62 83.82)
+		(start 134.62 81.28)
 		(end 134.62 88.9)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 1)
-		(uuid "b1bcad1a-f877-4928-8a56-3f5d0c2e2eae")
-	)
-	(segment
-		(start 142.24 83.82)
-		(end 142.24 88.9)
-		(width 0.2)
-		(layer "F.Cu")
-		(net 1)
-		(uuid "ecc011a1-df8f-4bdc-868a-18f66428d8f3")
+		(uuid "e579498a-1da9-44f7-acf4-372fa7cdd890")
 	)
 	(via
-		(at 142.24 83.82)
+		(at 142.24 81.28)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
@@ -4880,7 +4988,7 @@
 		(uuid "3f0702e1-8bf5-46f6-aa71-19bd57ce14e3")
 	)
 	(via
-		(at 111.76 83.82)
+		(at 111.76 81.28)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
@@ -4936,7 +5044,7 @@
 		(uuid "96e520bd-50c5-44db-ae4d-550899f0aa74")
 	)
 	(via
-		(at 134.62 83.82)
+		(at 134.62 81.28)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
@@ -4992,20 +5100,20 @@
 		(uuid "31a52b67-a766-4147-93ee-54719158d1f4")
 	)
 	(segment
+		(start 111.76 81.28)
+		(end 172.72 81.28)
+		(width 2)
+		(layer "B.Cu")
+		(net 1)
+		(uuid "34d500a4-16cb-44bb-a80f-79e1d01c941b")
+	)
+	(segment
 		(start 142.24 99.06)
 		(end 142.24 88.9)
 		(width 2)
 		(layer "B.Cu")
 		(net 1)
 		(uuid "572913ab-0fe5-4f91-a6e7-222a0d9ab087")
-	)
-	(segment
-		(start 111.76 83.82)
-		(end 172.72 83.82)
-		(width 2)
-		(layer "B.Cu")
-		(net 1)
-		(uuid "68b2a0d9-c3d8-45c6-a48e-c1f78d267755")
 	)
 	(segment
 		(start 111.76 106.68)
@@ -5048,22 +5156,6 @@
 		(uuid "cd22eb52-166a-4bd0-8a76-ef1c04a7898a")
 	)
 	(segment
-		(start 116.84 106.68)
-		(end 116.84 86.36)
-		(width 0.2)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "0fc34115-f46c-4f82-abd3-d0656c31e490")
-	)
-	(segment
-		(start 147.32 86.36)
-		(end 147.32 88.9)
-		(width 0.2)
-		(layer "F.Cu")
-		(net 2)
-		(uuid "1675ca07-31c1-4cf0-a837-a948e82801e7")
-	)
-	(segment
 		(start 116.84 111.76)
 		(end 119.38 111.76)
 		(width 0.2)
@@ -5072,12 +5164,20 @@
 		(uuid "3e7eeeb0-be14-4505-bde1-3b64a3179a5c")
 	)
 	(segment
-		(start 132.08 86.36)
+		(start 132.08 83.82)
 		(end 132.08 88.9)
 		(width 0.2)
 		(layer "F.Cu")
 		(net 2)
-		(uuid "86df17b5-a92d-46bf-b5e2-1c74e32335e5")
+		(uuid "6eb34828-635c-442b-9db2-9f8be1878f70")
+	)
+	(segment
+		(start 147.32 83.82)
+		(end 147.32 88.9)
+		(width 0.2)
+		(layer "F.Cu")
+		(net 2)
+		(uuid "7f7bdc23-e96c-4d6e-b36d-7213281a2c5b")
 	)
 	(segment
 		(start 116.84 116.84)
@@ -5086,6 +5186,14 @@
 		(layer "F.Cu")
 		(net 2)
 		(uuid "a0f395be-9e5b-4643-8bcf-f327d4d556ab")
+	)
+	(segment
+		(start 116.84 106.68)
+		(end 116.84 83.82)
+		(width 0.2)
+		(layer "F.Cu")
+		(net 2)
+		(uuid "c0c94066-6ecb-4d11-9ed2-40ce217d615d")
 	)
 	(segment
 		(start 142.24 116.84)
@@ -5112,7 +5220,7 @@
 		(uuid "17c399a9-7f0b-4315-91e1-697676cbaa25")
 	)
 	(via
-		(at 147.32 86.36)
+		(at 147.32 83.82)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
@@ -5136,7 +5244,7 @@
 		(uuid "4ebb39f1-0f4a-43e3-9526-15f7563b1922")
 	)
 	(via
-		(at 116.84 86.36)
+		(at 116.84 83.82)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
@@ -5160,7 +5268,7 @@
 		(uuid "976eb449-0630-4eb0-a0cb-aef1e9631284")
 	)
 	(via
-		(at 132.08 86.36)
+		(at 132.08 83.82)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
@@ -5240,12 +5348,12 @@
 		(uuid "9c68c3d9-8fdf-40b4-a973-a858924056b9")
 	)
 	(segment
-		(start 172.72 86.36)
-		(end 111.76 86.36)
+		(start 172.72 83.82)
+		(end 111.76 83.82)
 		(width 2)
 		(layer "B.Cu")
 		(net 2)
-		(uuid "ae8adcf6-6d70-4d7c-89ef-06559aa725f9")
+		(uuid "fd0f94a1-549d-482b-bd86-a1b9de906a4b")
 	)
 	(segment
 		(start 144.78 99.06)
