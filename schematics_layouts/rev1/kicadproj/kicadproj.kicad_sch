@@ -5424,12 +5424,6 @@
 		(uuid "3f247ff7-6947-42c2-951c-c48b1fb7c845")
 	)
 	(junction
-		(at 63.5 163.83)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "43bd95ae-53a8-45d8-b20d-66251cc2cfe2")
-	)
-	(junction
 		(at 41.91 26.67)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5440,12 +5434,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "452143b3-4a61-435e-9d12-481f7f1c6362")
-	)
-	(junction
-		(at 69.85 109.22)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "490c8ff9-5f1c-4178-b66b-b50e08821581")
 	)
 	(junction
 		(at 39.37 114.3)
@@ -6271,16 +6259,6 @@
 			(type default)
 		)
 		(uuid "2d8f3fd7-f4a1-4066-b3ee-69b3f4fd1835")
-	)
-	(wire
-		(pts
-			(xy 20.32 130.81) (xy 20.32 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2e613ad6-347b-459f-97ed-25892de73aa6")
 	)
 	(wire
 		(pts
@@ -7355,7 +7333,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 105.41) (xy 69.85 109.22)
+			(xy 69.85 105.41) (xy 69.85 114.3)
 		)
 		(stroke
 			(width 0)
@@ -7422,16 +7400,6 @@
 			(type default)
 		)
 		(uuid "94fb017f-b6c1-4cd2-990f-b8668dbb0dab")
-	)
-	(wire
-		(pts
-			(xy 20.32 163.83) (xy 63.5 163.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "96231fd7-f3bb-4478-a78e-025fdffef4fa")
 	)
 	(wire
 		(pts
@@ -8196,16 +8164,6 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 109.22) (xy 69.85 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cf0f8715-5c95-436c-9da7-a5580e8f1349")
-	)
-	(wire
-		(pts
 			(xy 146.05 64.77) (xy 146.05 60.96)
 		)
 		(stroke
@@ -8213,16 +8171,6 @@
 			(type default)
 		)
 		(uuid "cfa81014-5489-41db-9717-89af31dde74c")
-	)
-	(wire
-		(pts
-			(xy 20.32 109.22) (xy 69.85 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d08f2eae-11ca-4f38-a59e-f6800e46452f")
 	)
 	(wire
 		(pts
@@ -8316,16 +8264,6 @@
 	)
 	(wire
 		(pts
-			(xy 20.32 138.43) (xy 20.32 163.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "df55f6a2-3708-4d57-a3f2-816c1f6a5364")
-	)
-	(wire
-		(pts
 			(xy 208.28 120.65) (xy 214.63 120.65)
 		)
 		(stroke
@@ -8406,17 +8344,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 166.37) (xy 63.5 163.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e6987888-2823-4e81-92c4-e48d2aded976")
-	)
-	(wire
-		(pts
-			(xy 63.5 163.83) (xy 63.5 161.29)
+			(xy 63.5 161.29) (xy 63.5 166.37)
 		)
 		(stroke
 			(width 0)
@@ -9967,75 +9895,6 @@
 			(project "kicadproj"
 				(path "/ca541a5b-595f-4bc9-94a8-fb0af63f5122"
 					(reference "#PWR05")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:CP")
-		(at 20.32 134.62 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "163a577d-8d9d-42af-ba2d-579cef9ae9be")
-		(property "Reference" "C5"
-			(at 15.748 130.048 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100u"
-			(at 13.97 137.668 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 21.2852 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 20.32 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Polarized capacitor"
-			(at 20.32 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "dd2d7342-b4d6-4a8b-aeae-33e75724688e")
-		)
-		(pin "2"
-			(uuid "5eee8c9e-8cd5-4cbe-8db4-94f2a7a5395b")
-		)
-		(instances
-			(project "kicadproj"
-				(path "/ca541a5b-595f-4bc9-94a8-fb0af63f5122"
-					(reference "C5")
 					(unit 1)
 				)
 			)

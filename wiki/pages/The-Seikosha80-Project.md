@@ -84,6 +84,8 @@ Below is the picture of Revision 1:
 
 So far, it has been operating quite well. Power consumption is extremely low (after weeks of operation, each cell is still around 1.4V), which makes me believe this prototype will be able to reach the many-months of operation that I expect.
 
+> **Update:** after some months (I forgot to count how many lol, but around 4), batteries dropped to mid-life (1.34V) and the breadboard froze on an always-on state. There are some stuff I am thinking for next revisions, like watchdog and voltage monitoring.
+
 This device includes the following components:
 
 - **Three AA/AAA** batteries;
@@ -422,18 +424,45 @@ At last, Revision 1c is another slight rearrange, optimised for the stripboard s
 
 These are located at `schematics_layouts/rev1/kicadproj_pcb_rev1b/` and `schematics_layouts/rev1/kicadproj_pcb_rev1c/`.
 
+## PCB Assemblies
+
+### Revision 1c
+
+I have decided to move on with Revision 1c of the PCB layout, since it allows me to change modules for me to test some different stuff. For now, I am using all the stuff I've mentioned for Revision 1. I have used the following stripboard:
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/stripboard.jpeg?raw=true" alt="drawing" width="600"/>
+
+Here are some pictures of the assembled PCBs, plus the attached "daughter cards":
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/board_rev1c.jpeg?raw=true" alt="drawing" width="600"/>
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/board_rev1c_2.jpeg?raw=true" alt="drawing" width="600"/>
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/board_rev1c_3.jpeg?raw=true" alt="drawing" width="600"/>
+
+This has been working quite well, although there are some small issues:
+
+- With 100% full batteries, the circuit might fail to power up properly and enters a bootloop. Reason under investigation;
+- Sometimes, the "Set 15 min" button also freezes the device.
+
+Apart from that, it has been working amazingly well. After some struggle setting it up after power-up, it has been working flawlessly for several weeks now.
+
+Long story short, there are some visible issues to solve, but in overall, this has been a good prototype.
+
 ## The old layout folder...
 
 There is an `old/layouts/` folder. Don't look there. These are preliminary layout for the breadboard circuits. I had no Internet at the time I was doing this, so please ignore the file format I used. Really, just nod and move on.
 
 ## Next steps
 
-Current status is:
+Current status is: testing Revision 1c.
 
-- Testing revision 1 on breadboard. I want to see for how long it will work without breaking anything. After some months, battery voltage is 4.15V total;
-- PCB layout for revision 1 is done. Time for assembly.
-- Think about next revisions, possible improvements:
-    - Better speaker?
-    - External oscillator?
-    - Another audio board?
-	- Voltage monitoring for undervoltage protection?
+Potential improvements:
+
+- **External oscillator:** evaluate if an external oscillator can improve audio quality (apparently there is some wow/flutter using the internal clock);
+- **Voltage monitoring for undervoltage protection?** The breadboard prototype froze after some months on an always-on deadlock (batteries were mid-life at 1.34V). I believe two improvements would be interesting here:
+	- Some watchdog logic to avoid deadlock states;
+	- Voltage monitoring would be interesting to fully shutdown the device if battery voltage gets too low;
+- **Test other audio modules** (ongoing)
+	- The voltage that the breadboard prototype reached is the lowest operating voltage for the LM386. If I want to go lower, I need another module;
+	- Currently testing the NS8002 Audio chip. IT IS REALLY LOUD. I am studying how to decrease gain and how to adapt this module to the Revision 1c board;
