@@ -12969,7 +12969,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d7026b65-5104-4f79-a9c1-98e8f20c8ce5")
-		(property "Reference" "R3"
+		(property "Reference" "RB2"
 			(at 93.98 124.4599 0)
 			(effects
 				(font
@@ -13023,7 +13023,7 @@
 		(instances
 			(project "kicadproj"
 				(path "/ca541a5b-595f-4bc9-94a8-fb0af63f5122"
-					(reference "R3")
+					(reference "RB2")
 					(unit 1)
 				)
 			)

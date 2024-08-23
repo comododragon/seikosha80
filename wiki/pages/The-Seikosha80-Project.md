@@ -76,9 +76,9 @@ This project was a perfect base for my application, given some changes that I wo
 
 I decided to stick with 3 AA/AAA batteries. That would give me 1.65V x 3 = 4.95V when full, and I am expecting something around 1.1V x 3 = 3.3V when depleted. So, ideally, the device has to work in this range: 3.3-4.95V.
 
-After much work and thoughts, I was able to put together a first prototype (Revision 1) for this project. The schematic is available [here](https://github.com/comododragon/seikosha80/blob/main/schematics/rev1/kicadproj/output.pdf).
+After much work and thoughts, I was able to put together a first prototype (Revision 1) for this project. The schematic for Rev. 1b (using NS8002 audio) is available [here](https://github.com/comododragon/seikosha80/blob/main/schematics_layouts/rev1/kicadproj/output.pdf). The schematic for Rev. 1 (using LM386 audio) is available [here](https://github.com/comododragon/seikosha80/blob/main/schematics_layouts/rev1/kicadproj_lm386/output.pdf).
 
-Below is the picture of Revision 1:
+Below is the picture of Revision 1 on breadboard using LM386 as audio amplifier:
 
 <img src="https://github.com/comododragon/seikosha80/blob/main/wiki/rev1.jpeg?raw=true" alt="drawing" width="600"/>
 
@@ -95,6 +95,10 @@ This device includes the following components:
 - **Two PFETs**, one for reverse polarity protection, and one that controls the audio/sdcard power rails;
 - **Two pushbuttons**, one for advancing one hour, and one for advancing fifteen minutes;
 - An **ATMega328P microcontroller**, responsible for configuring the RTC, reading the SD card and playing the audio.
+
+**Update:** I have moved from the breadboard to a stripboard with assembled PCB. And I am currently using the NS8002 audio chip. Here's a picture of current setup:
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/board_rev1c_newaudio.jpeg?raw=true" alt="drawing" width="600"/>
 
 Below, I detail each part of my quest towards the Revision 1.
 
@@ -141,6 +145,42 @@ And below is the schematic part related to the DS3231 board, with all modificati
 <img src="https://github.com/comododragon/seikosha80/blob/main/wiki/ds3231boardsch.jpeg?raw=true" alt="drawing" width="800"/>
 
 ## Audio Amplifier and Speaker
+
+> **Note:** *For the "older" approach using LM386, see sub-section below.*
+
+I bought the following board containing an NS8002 (or equivalent) from AliExpress:
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/ns8002.jpeg?raw=true" alt="drawing" width="400"/>
+
+I found this chip to be very interesting for multiple reasons:
+
+- **Single channel:** several audio boards for hobbyists are actually stereo. I don't need this, mono is fine by me;
+- **Low cost:** less than 2 US dollars;
+- **Low voltage:** Different from LM386, this one can work down to 3 Volts. This is below my expected minimum operating voltage (circa 3.3V).
+
+The figure below shows the schematic part related to the audio output:
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/ns8002boardsch.jpeg?raw=true" alt="drawing" width="800"/>
+
+I had to add a resistor on the audio input because it was VERY LOUD. According to the NS8002 datasheet, ideally the gain should be regulated via the `Ri` and `Rf` resistors (`RB1` and `RB2` on my schematic, respectively). However these resistors are already in place on this small NS8002 board. I could replace one of the resistors (probably `RB1`), but I do not have any SMD resistor here and I am lazy. So, I decided to put a resistor on the audio input (`R3` on schematic) and it worked well enough. I am currently using 39k. It is still loud, but bearable.
+
+This small board comes with a form factor that is not compatible with the connectors that I used on PCB Revision 1c. The pinout is also incompatible, as I first made this interface to use with the LM386. This means that I have to adapt this small board to the expected pinout for PCB Rev. 1c.
+
+Here are two pictures of my humble adapter for this board:
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/audio_ns8002_board.jpeg?raw=true" alt="drawing" width="600"/>
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/audio_ns8002_board_2.jpeg?raw=true" alt="drawing" width="600"/>
+
+Essentially I am just using a cut-down stripboard to reorder wiring according to the expected pinout on PCB, and I added a small "socket" to place the `R3` resistor. This means I can choose other resistance values and increase/decrease gain at my will.
+
+I wanted to use a connector on the PCB for the speaker, but there was not enough space when assembled on the main board. This is why the speaker connector is attached to the board via cables.
+
+The NS8002 small board is mounted on the back of the stripboard PCB using double-sided mounting tape. This tape provides enough isolation between the solders of both boards.
+
+### "Old" approach for Audio (LM386)
+
+> **Note:** *This section was written before using the NS8002. Bear that in mind when reading the statements below, as some of them are sorta outdated.*
 
 For the audio part I am simply using an LM386 board. These are readily available on hobbyist stores. For the speaker, I am currently using 8 Ohms, 0.5 W, but I intend to put something a bit stronger soon.
 
@@ -398,13 +438,21 @@ This file is automatically generated by `prepare_chime_files.py`. It must be cop
 
 The schematic and PCB layout files are located in `schematics_layouts/`. Tool being used is `KiCad` because it is free.
 
+> **Important:** revisions are different for schematics and PCB layouts. For example, board Revision 1c can be assembled using either schematic Revision 1 or Revision 1b.
+
 ### Revision 1
 
-Below is a print of schematic for Revision 1:
+Below is a print of schematic for Revision 1b (using NS8002 audio amplifier):
 
 <img src="https://github.com/comododragon/seikosha80/blob/main/wiki/sch.jpeg?raw=true" alt="drawing" width="800"/>
 
-The PDF file for Revision 1 can be found [here](https://github.com/comododragon/seikosha80/blob/main/schematics_layouts/rev1/kicadproj/output.pdf).
+The PDF file for Revision 1b can be found [here](https://github.com/comododragon/seikosha80/blob/main/schematics_layouts/rev1/kicadproj/output.pdf).
+
+Below is a print of schematic for Revision 1 using the "old" LM386 amplifier:
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/sch_lm386.jpeg?raw=true" alt="drawing" width="800"/>
+
+The PDF file for Revision 1 can be found [here](https://github.com/comododragon/seikosha80/blob/main/schematics_layouts/rev1/kicadproj_lm386/output.pdf).
 
 The PCBA for this revision considers the components in daughter boards and a stripboard for putting all together. For PCB layout, another schematic is needed considering the daughter boards instead of all discrete components. Here is a print for the schematic considering daughter boards connectors:
 
@@ -428,17 +476,19 @@ These are located at `schematics_layouts/rev1/kicadproj_pcb_rev1b/` and `schemat
 
 ### Revision 1c
 
-I have decided to move on with Revision 1c of the PCB layout, since it allows me to change modules for me to test some different stuff. For now, I am using all the stuff I've mentioned for Revision 1. I have used the following stripboard:
+I have decided to move on with Revision 1c of the PCB layout, since it allows me to change modules for me to test some different stuff. For now, I am using all the stuff I've mentioned for Revision 1. I used the following stripboard:
 
 <img src="https://github.com/comododragon/seikosha80/blob/main/wiki/stripboard.jpeg?raw=true" alt="drawing" width="600"/>
 
-Here are some pictures of the assembled PCBs, plus the attached "daughter cards":
+Here are some pictures of the assembled PCB, plus the attached "daughter cards":
 
 <img src="https://github.com/comododragon/seikosha80/blob/main/wiki/board_rev1c.jpeg?raw=true" alt="drawing" width="600"/>
 
 <img src="https://github.com/comododragon/seikosha80/blob/main/wiki/board_rev1c_2.jpeg?raw=true" alt="drawing" width="600"/>
 
 <img src="https://github.com/comododragon/seikosha80/blob/main/wiki/board_rev1c_3.jpeg?raw=true" alt="drawing" width="600"/>
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/board_rev1c_4.jpeg?raw=true" alt="drawing" width="600"/>
 
 This has been working quite well, although there are some small issues:
 
@@ -448,6 +498,16 @@ This has been working quite well, although there are some small issues:
 Apart from that, it has been working amazingly well. After some struggle setting it up after power-up, it has been working flawlessly for several weeks now.
 
 Long story short, there are some visible issues to solve, but in overall, this has been a good prototype.
+
+#### Upgrade to new audio module
+
+After testing a bit with the NS8002 audio chip on the breaboard, I decided to upgrade my Rev. 1c board with this new audio board. The advantage of Rev. 1c and its "modular" approach is that I could easily swap from the LM386 daughter board to the NS8002 one.
+
+Here's a picture of the current assembly:
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/board_rev1c_newaudio.jpeg?raw=true" alt="drawing" width="600"/>
+
+In summary: LOUD. I mean, not unbearable, but for sure it is noticeable from anywhere in the house. Now I have to test battery life.
 
 ## The old layout folder...
 
@@ -464,5 +524,4 @@ Potential improvements:
 	- Some watchdog logic to avoid deadlock states;
 	- Voltage monitoring would be interesting to fully shutdown the device if battery voltage gets too low;
 - **Test other audio modules** (ongoing)
-	- The voltage that the breadboard prototype reached is the lowest operating voltage for the LM386. If I want to go lower, I need another module;
-	- Currently testing the NS8002 Audio chip. IT IS REALLY LOUD. I am studying how to decrease gain and how to adapt this module to the Revision 1c board;
+	- Currently testing the NS8002 Audio chip.
