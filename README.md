@@ -1,11 +1,15 @@
 # seikosha80
 Seikosha80 Chimer Project
 
-<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/rev1.jpeg?raw=true" alt="drawing" width="600"/>
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/board_rev1c_newaudio.jpeg?raw=true" alt="drawing" width="600"/>
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/board_rev1c_3.jpeg?raw=true" alt="drawing" width="600"/>
 
 <img src="https://github.com/comododragon/seikosha80/blob/main/wiki/pcb1c.jpeg?raw=true" alt="drawing" width="600"/>
 
 <img src="https://github.com/comododragon/seikosha80/blob/main/wiki/pcb1c_front.jpeg?raw=true" alt="drawing" width="600"/>
+
+<img src="https://github.com/comododragon/seikosha80/blob/main/wiki/rev1.jpeg?raw=true" alt="drawing" width="600"/>
 
 Take a look at the [wiki](https://github.com/comododragon/seikosha80/wiki/The-Seikosha80-Project) for the complete story around this project.
 
@@ -16,6 +20,10 @@ For a complete description of Revision 1 board, see [here](https://github.com/co
 ## PCB
 
 For PCB schematics and layouts, check [here](https://github.com/comododragon/seikosha80/wiki/The-Seikosha80-Project#schematics-and-layouts).
+
+## PCBA
+
+For PCB assemblies, see [here](https://github.com/comododragon/seikosha80/wiki/The-Seikosha80-Project#pcb-assemblies).
 
 ## Software
 
