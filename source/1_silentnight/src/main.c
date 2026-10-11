@@ -27,7 +27,8 @@
 int main(void) {
 	int sdRetVal = SD_NO_ERROR;
 	bool firstRun = true;
-	unsigned char *rtcTime, setTime[2];
+	bool wasAlarmTrigger;
+	unsigned char *rtcTime, setTime[3];
 	unsigned char hours, hours12, quarter, nextQuarter;
 	unsigned long audioSize;
 	unsigned long byteAddr;
@@ -44,6 +45,12 @@ int main(void) {
 		ASSERT(TW_NO_ERROR == twi_enable());
 		ASSERT(TW_NO_ERROR == rtc_setup());
 
+		// This first TWI read might fail due to transients on the lines
+		// caused by button press. If this happens, ignore the error, and
+		// assume button was pressed.
+		if(rtc_checkIfAlarmTriggered(&wasAlarmTrigger) != TW_NO_ERROR)
+			wasAlarmTrigger = false;
+
 		// Read hours and minutes
 		ASSERT(TW_NO_ERROR == rtc_readTime());
 		rtcTime = rtc_getTimePtr();
@@ -56,41 +63,18 @@ int main(void) {
 		else {
 			// XXX Would be interesting to check what happens if one presses one or more buttons and does not release
 
-			// If PIND2 is 1, it means that alarm has not triggered
-			// In this case, we might have woken up due to a button action
-			if(PIND & (1 << PIND2)) {
+			// If no alarm was triggered, this was a button action
+			if(!wasAlarmTrigger) {
 				setTime[0] = 0x00;
 				setTime[1] = rtcTime[0];
 				setTime[2] = rtcTime[1];
 
-				// If INT0 triggered, advance one hour
-				if(ins_0triggered()) {
-					ASSERT(TW_NO_ERROR == rtc_setTimeNextHour());
-#if 0
-					if(0x23 == rtcTime[1])
-						setTime[2] = 0x00;
-					else if(0x09 == rtcTime[1])
-						setTime[2] = 0x10;
-					else if(0x19 == rtcTime[1])
-						setTime[2] = 0x20;
-					else
-						setTime[2]++;
-#endif
-				}
-				// If INT1 triggered, advance fifteen minutes
-				else if(ins_1triggered()) {
+				// If PD3 is low, it means the 15-min button (and the hour button) is pressed
+				if(!(PIND & (1 << PIND3)))
 					ASSERT(TW_NO_ERROR == rtc_setTimeNextQuarter());
-#if 0
-					if(rtcTime[0] < 0x15)
-						setTime[1] = 0x15;
-					else if(rtcTime[0] < 0x30)
-						setTime[1] = 0x30;
-					else if(rtcTime[0] < 0x45)
-						setTime[1] = 0x45;
-					else
-						setTime[1] = 0x00;
-#endif
-				}
+				// Else, only the hour button is pressed
+				else
+					ASSERT(TW_NO_ERROR == rtc_setTimeNextHour());
 
 #if 0
 				// Update RTC (and zero seconds)
@@ -112,12 +96,18 @@ int main(void) {
 
 		// Convert from 24 to 12 hours (1-12)
 		if(!hours) {
+			// 00 hours is silent hours
+			*(sound_getSilentHoursRef()) = true;
 			hours12 = 12;
 		}
 		else if(hours <= 12) {
+			// If hours is 5 or less, it is silent hours
+			*(sound_getSilentHoursRef()) = (hours < 6);
 			hours12 = hours;
 		}
 		else {
+			// This is afternoon, no silent hours here
+			*(sound_getSilentHoursRef()) = false;
 			hours12 = hours - 12;
 		}
 

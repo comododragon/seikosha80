@@ -34,5 +34,8 @@ unsigned char rtc_setAlarmMinutes(unsigned char minutes);
 // Reset the alarm flag
 unsigned char rtc_resetAlarm(void);
 
+// Check if the alarm triggered
+unsigned char rtc_checkIfAlarmTriggered(bool *wasAlarmTrigger);
+
 
 #endif

@@ -21,6 +21,8 @@ unsigned long totalReceived = 0;
 unsigned long audioSize;
 // Sample count
 volatile unsigned long sample;
+// Flag for silent hours or not
+volatile bool silentHours = false;
 
 
 void _sound_start(void) {
@@ -62,7 +64,7 @@ ISR(TIMER1_COMPA_vect) {
 				_sound_stop();
 				stopped = true;
 			}
-			OCR0A = audioRingBuffer[sample % RING_BUFFER_SIZE];
+			OCR0A = audioRingBuffer[sample % RING_BUFFER_SIZE] >> (silentHours * SILENT_HOURS_ATT_FACTOR);
 
 			++sample;
 			++totalPlayed;
@@ -93,7 +95,7 @@ void sound_setup(void) {
 
 	TCCR0A = (TCCR0A | (1 << COM0A1)) & ~(1 << COM0A0);
 	TCCR0A &= ~((1 << COM0B1) | (1 << COM0B0));
-	OCR0A = audioRingBuffer[0];
+	OCR0A = audioRingBuffer[0] >> (silentHours * SILENT_HOURS_ATT_FACTOR);
 
 	cli();
 
@@ -146,6 +148,9 @@ volatile bool *sound_getHaltRef(void) {
 	return &halt;
 }
 
+volatile bool *sound_getSilentHoursRef(void) {
+	return &silentHours;
+}
 
 volatile bool sound_isStopped(void) {
 	return stopped;

@@ -39,10 +39,21 @@ void pwr_sleepPrepare(void) {
 
 
 void pwr_enableRail(void) {
+	// These modifications are here to try to reduce inrush current when turning the rail on
+	// This might help reduce battery consumption
+	// If not, we can revert to the same way as in the 0_bringup
+	PORTD &= ~(1 << PORTD2);
+	PORTD |= (1 << PORTD2);
+	__asm__ __volatile__ ("nop\n\t");
+	PORTD &= ~(1 << PORTD2);
 	DDRD |= (1 << DDD2);
 }
 
 
 void pwr_disableRail(void) {
+	// These modifications are here to try to reduce inrush current when turning the rail on
+	// This might help reduce battery consumption
+	// If not, we can revert to the same way as in the 0_bringup
 	DDRD &= ~(1 << DDD2);
+	PORTD &= ~(1 << PORTD2);
 }

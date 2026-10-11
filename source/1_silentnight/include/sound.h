@@ -18,6 +18,8 @@
 #define RECV_PAUSE_THRESHOLD   800UL
 // Lower limit to resume sdcard read
 #define RECV_RESUME_THRESHOLD  300UL
+// Silent hours attenuation factor
+#define SILENT_HOURS_ATT_FACTOR 2
 
 
 // Initialise the counters
@@ -37,6 +39,9 @@ unsigned long *sound_getTotalReceivedRef(void);
 
 // Get reference for halt flag
 volatile bool *sound_getHaltRef(void);
+
+// Get reference for silent hours flag
+volatile bool *sound_getSilentHoursRef(void);
 
 // True if sound is stopped
 volatile bool sound_isStopped(void);

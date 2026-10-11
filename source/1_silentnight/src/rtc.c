@@ -183,3 +183,20 @@ _err:
 
 	return errCode;
 }
+
+unsigned char rtc_checkIfAlarmTriggered(bool *wasAlarmTrigger) {
+	unsigned char errCode = TW_NO_ERROR;
+	unsigned char retVal;
+	unsigned char statusVal;
+
+	*wasAlarmTrigger = false;
+
+    retVal = twi_readByte(0x68, 0x0F, &statusVal);
+    TWI_CHECK_RETURN_STATUS(retVal, errCode);
+
+	*wasAlarmTrigger = (statusVal & (1 << 1));
+
+_err:
+
+	return errCode;
+}
