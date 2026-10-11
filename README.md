@@ -13,6 +13,12 @@ Seikosha80 Chimer Project
 
 Take a look at the [wiki](https://github.com/comododragon/seikosha80/wiki/The-Seikosha80-Project) for the complete story around this project.
 
+**This project is basically end-of-life.** I have found many issues with this PCB, including software instability, battery drainage higher than expected, and so on.
+
+This project will not die though. I have other ideas in mind, perhaps not using RTC anymore. When new stuff arise, I will update here.
+
+Nonetheless, I might still do a bit of work on this board just for some quality improvement. No PCB updates are expected, only software changes. I will use [this](https://github.com/comododragon/seikosha80/wiki/The-Seikosha80-Project#updates) section to group all further updates.
+
 ## Revision 1
 
 For a complete description of Revision 1 board, see [here](https://github.com/comododragon/seikosha80/wiki/The-Seikosha80-Project#second-attempt-finally-a-kickoff-2024-).

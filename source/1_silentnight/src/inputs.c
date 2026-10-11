@@ -8,26 +8,11 @@
 #include <avr/interrupt.h>
 
 
-// For INT0 and INT1, we do not need interrupt handlers. We only use interrupt
+// For INT0, we do not need interrupt handlers. We only use interrupt
 // to get out of sleep mode in these cases. Nonetheless, an empty ISR must be
 // defined. Search for "Empty interrupt service routines" on
 // https://www.nongnu.org/avr-libc/user-manual/group__avr__interrupts.html
 EMPTY_INTERRUPT(INT0_vect);
-EMPTY_INTERRUPT(INT1_vect);
-
-
-bool __int0_triggered = false;
-bool __int1_triggered = false;
-
-
-//ISR(INT0_vect) {
-//	__int0_triggered = true;
-//}
-
-
-//ISR(INT1_vect) {
-//	__int1_triggered = true;
-//}
 
 
 void ins_setup(void) {
@@ -37,31 +22,27 @@ void ins_setup(void) {
 
 
 void ins_prepare(void) {
-	EICRA &= ~((1 << ISC11) | (1 << ISC10) | (1 << ISC01) | (1 << ISC00));
-	EICRA |= (1 << ISC11) | (1 << ISC01);
-	EIFR |= (1 << INTF1) | (1 << INTF0);
-	//EIMSK |= (1 << INT1) | (1 << INT0);
+	// Reset interrupt configuration
+	EICRA &= ~((1 << ISC01) | (1 << ISC00));
+	// Set up for edge detection
+	EICRA |= (1 << ISC01);
+	// Clear EIFR flags
+	EIFR |= (1 << INTF0);
+	// Enable interrupt
 	EIMSK |= (1 << INT0);
 }
 
 
 void ins_unprepare(void) {
-	EIMSK &= ~((1 << INT1) | (1 << INT0));
+	EIMSK &= ~(1 << INT0);
 }
 
 
-bool ins_0triggered(void) {
+bool ins_triggered(void) {
 	return (EIFR & (1 << INTF0));
 }
 
 
-bool ins_1triggered(void) {
-	return (EIFR & (1 << INTF1));
-}
-
-
 void ins_clear(void) {
-	EIFR |= (1 << INTF1) | (1 << INTF0);
-	__int0_triggered = false;
-	__int1_triggered = false;
+	EIFR |= (1 << INTF0);
 }

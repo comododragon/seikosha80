@@ -75,12 +75,6 @@ int main(void) {
 				// Else, only the hour button is pressed
 				else
 					ASSERT(TW_NO_ERROR == rtc_setTimeNextHour());
-
-#if 0
-				// Update RTC (and zero seconds)
-				errCode = writeBlock(0x68, 0x00, setVals, 3);
-				TWI_CHECK_RETURN_STATUS(errCode);
-#endif
 			}
 
 			// Disable and reset alarm in any case
@@ -135,23 +129,6 @@ int main(void) {
 		// Try to initialise SD
 		sdRetVal = sd_init(SD_VOLTAGE_2V7_3V6, 10);
 		ASSERT(SD_NO_ERROR == sdRetVal || SD_VER_MMC_3_0 == sdRetVal || SD_VER_1_X == sdRetVal || SD_VER_2_0_PLUS_SC == sdRetVal || SD_VER_2_0_PLUS_HCXC == sdRetVal);
-#if 0
-		int i;
-		for(i = 0; i < (hours + 1); i++) {
-			DDRD |= (1 << DDD2);
-			_delay_ms(1000);
-			DDRD &= ~(1 << DDD2);
-			_delay_ms(1000);
-		}
-		_delay_ms(2000);
-		for(i = 0; i < quarter + 1; i++) {
-			DDRD |= (1 << DDD2);
-			_delay_ms(500);
-			DDRD &= ~(1 << DDD2);
-			_delay_ms(500);
-		}
-#endif
-
 
 		// Prepare audio counter, then trigger interrupt just a bit before call to sd_readring
 		// Nothing will happen until data start to pour in
@@ -209,9 +186,7 @@ int main(void) {
 				break;
 		}
 
-#if 1
 		ASSERT(TW_NO_ERROR == rtc_setAlarmMinutes(nextQuarter));
-#endif
 
 		// XXX These delays might be unnecessary, but they won't hurt anyone
 		_delay_ms(250);

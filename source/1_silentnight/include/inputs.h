@@ -10,10 +10,6 @@
 #include <stdbool.h>
 
 
-extern bool __int0_triggered;
-extern bool __int1_triggered;
-
-
 // Initialise inputs
 void ins_setup(void);
 
@@ -27,11 +23,7 @@ void ins_unprepare(void);
 
 
 // Return if INT0 was triggered (must clear with ins_clear())
-bool ins_0triggered(void);
-
-
-// Return if INT1 was triggered (must clear with ins_clear())
-bool ins_1triggered(void);
+bool ins_triggered(void);
 
 
 // Clear the trigger flags

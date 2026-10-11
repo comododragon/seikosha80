@@ -1,5 +1,35 @@
 This is a personal project that has been going for a long time. Finally some progress has been achieved, and I decided to use this place as a quest log.
 
+Please bear in mind that this is a very simple circuit designed with off-the-shelf parts that I had easy access to. It has some design decisions that make this board very unstable and finnicky to use. I was finally able to make it work rather well after some software changes, see the next section for the latest updates.
+
+# Updates
+
+This project is basically end-of-life. I have found many issues with this PCB, including software instability, battery drainage higher than expected, and so on.
+
+This project will not die though. I have other ideas in mind, perhaps not using RTC anymore. When new stuff arise, I will update here.
+
+Nonetheless, I might still do a bit of work on this board just for some quality improvement. No PCB updates are expected, only software changes. I will use this section to group all further updates.
+
+## Oct 2026: Silent Hours and minor software improvements for stability
+
+I have updated the software code to now include the silent hours. This is one of the original functionalities of the clock, toggled by a button.
+
+In this case, I added no button and this mode will be always enabled. Basically, between 00:00 and 06:59, all chimes are played with reduced volume due to night time.
+
+The updated software code is in the folder `source/1_silentnight`.
+
+The attenuation is controlled by the macro `SILENT_HOURS_ATT_FACTOR`, located at file `source/1_silentnight/include/sound.h`. You can set it to 0 if you want to disable silent hours.
+
+Also, I have done some code polishing to try to overcome the many transients and in-rush current issues of this design. I believe that the software code goes into error some times, and basically resets.
+
+The buttons have always been a bit finnicky, sometimes they worked, sometimes they froze the PCB and a power cycle was needed.
+
+With some changes in the code, I think I have been able to overcome these issues and have a rather reliable design. This is what is needed to use this design rather reliably in its current state:
+
+- When connecting the batteries, one should press and hold the `SET HOUR` button, until the chimes play;
+- For advancing one hour, press and HOLD the `SET HOUR` button, until the chimes play;
+- For advancing 15 minutes, one should press the `SET 15 MIN`, hold it, then press `SET HOUR` and also hold it. Hold both until the chimes play.
+
 # Long story short
 
 This is an electronic device used to sound like a "Westminster Quarters" clock. It uses a Real-Time Clock (RTC) device to wake up a microcontroller every 15 minutes. Then, the microcontroller (an ATMEGA) reads an SD card, and plays a chime respective to the time pointed by the RTC. That's it.
